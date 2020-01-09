@@ -36,7 +36,7 @@
 
 Name:           jakarta-commons-httpclient
 Version:        3.1
-Release:        0.7%{?dist}
+Release:        0.9%{?dist}
 Epoch:          1
 Summary: Jakarta Commons HTTPClient implements the client side of HTTP standards
 License:        ASL 2.0
@@ -47,6 +47,7 @@ Patch1:         %{name}-addosgimanifest.patch
 # CVE-2012-5783: missing connection hostname check against X.509 certificate name
 # https://fisheye6.atlassian.com/changelog/httpcomponents?cs=1422573
 Patch2:         %{name}-CVE-2012-5783.patch
+Patch3:         0001-Fix-CVE-2014-3577.patch
 URL:            http://jakarta.apache.org/commons/httpclient/
 Group:          Development/Libraries/Java
 %if ! %{gcj_support}
@@ -136,6 +137,7 @@ pushd src/conf
 popd
 
 %patch2 -p2
+%patch3 -p1
 
 # Use javax classes, not com.sun ones
 # assume no filename contains spaces
@@ -238,6 +240,14 @@ fi
 
 
 %changelog
+* Mon Aug 18 2014 Michal Srb <msrb@redhat.com> - 1:3.1-0.9
+- Fix NOTICE file
+- Resolves: CVE-2014-3577
+
+* Wed Aug 13 2014 Michal Srb <msrb@redhat.com> - 1:3.1-0.8
+- Fix MITM security vulnerability
+- Resolves: CVE-2014-3577
+
 * Mon Jan 21 2013 Mikolaj Izdebski <mizdebsk@redhat.com> - 1:3.1-0.7
 - Add missing connection hostname check against X.509 certificate name
 - Resolves: CVE-2012-5783
