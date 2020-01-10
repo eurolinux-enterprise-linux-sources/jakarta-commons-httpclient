@@ -32,7 +32,7 @@
 
 Name:           jakarta-commons-httpclient
 Version:        3.1
-Release:        14%{?dist}
+Release:        15%{?dist}
 Epoch:          1
 Summary: Jakarta Commons HTTPClient implements the client side of HTTP standards
 License:        ASL 2.0 and (ASL 2.0 or LGPLv2+)
@@ -195,6 +195,9 @@ install -p -m 644 %{SOURCE1} $RPM_BUILD_ROOT%{_mavenpomdir}/JPP-%{name}.pom
 
 
 %changelog
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1:3.1-15
+- Mass rebuild 2013-12-27
+
 * Fri Jun 28 2013 Mikolaj Izdebski <mizdebsk@redhat.com> - 1:3.1-14
 - Rebuild to regenerate API documentation
 - Resolves: CVE-2013-1571
